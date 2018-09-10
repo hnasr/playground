@@ -1,0 +1,43 @@
+<html>
+	<body>
+		<button id = 'get'>GET</button>
+		<button id = 'post'>POST</button>
+	
+	
+
+	<script>
+	const get = document.getElementById("get");
+	const post = document.getElementById("post");
+	get.addEventListener("click", e =>{ 
+		
+		const http = new XMLHttpRequest();
+		http.open("GET", "http://localhost:8080");
+		http.onreadystatechange = () => {
+
+			if (http.readyState == 4)
+				alert(http.responseText);
+		}
+		http.send();	
+	});
+
+
+	post.addEventListener("click", e => {
+		const http = new XMLHttpRequest();
+		http.open("POST", "http://localhost:8080");
+		http.onreadystatechange = () => {
+
+			if (http.readyState == 4)
+				alert(http.responseText);
+		}
+		http.send();	
+
+
+	});
+
+
+		
+	</script>
+
+	</body>
+</html>
+
